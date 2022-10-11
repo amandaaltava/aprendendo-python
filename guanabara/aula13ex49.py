@@ -15,3 +15,4 @@ for tab in range(1, 11):
     multi = numero * tab         # faz o calculo
     contador = contador +1       # inicia o contador
     print(f'{numero} x {contador} = {multi}')
+"exercício da tabuada com o for, usando contador"
