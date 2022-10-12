@@ -15,7 +15,7 @@ for primo in range(1, n + 1):   # laço começa de 1 e adiciona 1 ao número
     print(f'{primo}', end=' ')   # imprime o intervalo do laço que parte de 1 até o número e é o IF que
 
 print(f'O número {n} foi divisível {c} vezes.')
-if c == 2:       # se o contador, que é o número de vezes que ele foi divisível for até 2, então é primo
+if c == 2:       # se o contador, que é o número de vezes que ele foi divisível for até 2, então é primoprogr
     print('E por isso ele não é primo.')
 else:
     print('E por isso ele não é primo.')
