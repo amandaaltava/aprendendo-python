@@ -6,7 +6,8 @@ qual é o nome do homem mais velho
 quantas mulheres tem menos de 20 anos.'''
 import statistics
 from statistics import mean
-'''cont1 = 0
+'''
+cont1 = 0
 nomeM = 0
 
 for laco in range(1, 5):
