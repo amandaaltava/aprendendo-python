@@ -4,51 +4,51 @@ Quantas pessoas foram cadastradas,
  uma listagem com as mais pesadas,
   uma listagem com as mais leves.
 '''
-cont = mais = menos = tototal = 0
-nome = ''
-dado = []
-lista = []
-resp = ''
+temp = []
+princ = []
+tototal = 0
+mai = men = 0
 
 while True:
-    dado.append(input('Nome: '))
-    dado.append(input('Peso: '))
-    tototal += 1
+    temp.append(str(input('Nome: ')))
+    temp.append(float(input('Peso: ')))
+# ele vai pegar cada dado que entra no temp[1] que é o peso e já vai comprarar para ver se é o
+# maior ou menor e guardar em uma variável. Ou seja, já tenho a informação fora da lista
+# de quem é o maior ou menor
+    if len(princ) == 0:       # Se eu ainda não tiver cadastrado ninguém, ou seja o tamanho da principal é 0
+        mai = men = temp[1]   # temp [1] é o item na posição 1, que é o peso
+    else:
+        if temp[1] > mai:
+            mai = temp[1]
+        if temp[1] < men:
+            men = temp[1]
 
+    princ.append(temp[:])
+    temp.clear()
+    print(temp, princ)
     resp = (input(f'Quer continuar? [ S / N ]: ')).upper() .strip()[0]
     while resp not in 'SN':
-       resp = (input('Digite S para continuar ou N para terminar: ')).upper() .strip()[0]
-    if resp == 'N':
+       resp = (str(input('Digite S para continuar ou N para terminar: '))).upper() .strip()[0]
+    if resp == 'N':        #(também pode ser '  in not 'Nn'  )
         break
+    tototal += 1    #(pode também não fazer um contador, pode usar o tamanho de itens na lista principal com o len>> len(princ)
 
-for p in dado:
-    if p[cont+1]  > mais:
-        p[cont+1] = mais
-    elif p[cont+1] < menos:
-        p[cont+1] = menos
-print(f' O peso maior é {mais} e o peso menor é {menos}  ')
-
-'''for cont in range(0, len(dado[::2])):
-    if cont == 0:
-        mais = menos = dado[cont]
-    else:
-        if dado[cont] > mais:
-            mais = dado[cont]
-        if dado[cont] < menos:
-            menos = dado[cont]
+print('...' * 20)
+print(f'Ao todo vc cadastrou {tototal} pessoas.')
 
 
-print(f'O maior peso digitado foi {mais} por ', end='')
-for nome, peso in enumerate(dado):
-    if peso == mais:
-        print(f'{nome} ', end='')
+# Agora o for vai varer cada lista dentro da lista princ pegando o item p[1] que é o peso
+# e vai comparar com a informação que eu já guardei na variável fora da lista lá no inicio
+# Quando o valor for igual da variável, ele vai pegar o item anterior da lista em que ele estiver, no caso, p[1]
+print(f'O maior peso foi de {mai}kg. Peso de', end='')
+for p in princ:
+    if p[1] == mai:
+        print(f' {p[0]}', end='')  #item anterior ao p[1]
 
-print('')
-print(f'O menor peso digitado foi {menos} por ', end='')
-for nome, peso in enumerate(dado):
-    if peso == menos:
-        print(f'{nome}', end='')'''
+print()
+print(f'O menor peso foi de {men}kg. Peso de ', end='')
+for p in princ:
+    if p[1] == men:
+        print(f'Peso de {p[0]}', end='') #item anterior ao p[1]
 
-print('')
-print(f'Ao todo você cadastrou {tototal} pessoas.')
-
+Programa que leia nome e peso de várias pessoas numa lista e mostre: Quantas pessoas foram cadastradas, uma listagem com as mais pesadas, uma listagem com as mais leves
